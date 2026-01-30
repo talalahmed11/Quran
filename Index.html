@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>QURAN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-main: #050814;
+      --bg-card: rgba(15, 23, 42, 0.9);
+      --bg-card-soft: rgba(15, 23, 42, 0.6);
+      --accent: goldenrod;
+      --accent-soft: rgba(218, 165, 32, 0.18);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-soft: rgba(148, 163, 184, 0.25);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+      --radius-xl: 18px;
+      --radius-full: 999px;
+      --transition-fast: 0.22s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 90%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.5), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .logo-icon {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-icon::before,
+    .logo-icon::after {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.19);
+    }
+
+    .logo-icon span {
+      font-size: 1.35rem;
+      transform: translateY(2px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links span {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: default;
+    }
+
+    .nav-links span.nav-pill {
+      border-color: rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+    }
+
+
+    .hero {
+      max-width: 1120px;
+      margin: 18px auto 10px;
+      padding: 0 18px 8px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 span {
+      color: var(--accent);
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 30rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: linear-gradient(135deg, #facc15, #b45309);
+      color: #0b1120;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 14px 40px rgba(250, 204, 21, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 18px 50px rgba(250, 204, 21, 0.45);
+    }
+
+    .btn-ghost {
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.9);
+      color: var(--text-main);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+      max-width: 260px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-stat {
+      padding: 8px 10px;
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.07), rgba(15, 23, 42, 0.96));
+    }
+
+    .hero-stat strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.85rem;
+    }
+
+    .hero-panel {
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(250, 204, 21, 0.22), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(56, 189, 248, 0.09), transparent 55%),
+        rgba(15, 23, 42, 0.96);
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel h2 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-panel p {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.75rem;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+    }
+
+    .hero-panel-footer {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-panel-footer span.highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ====== FILTER BAR ====== */
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto 40px;
+      padding: 0 18px 26px;
+    }
+
+    .filter-card {
+      margin-top: 10px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.92));
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 14px 12px;
+    }
+
+    .filter-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .filter-title {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-title strong {
+      color: var(--accent);
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 210px;
+      max-width: 320px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 9px 32px 9px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(218, 165, 32, 0.4);
+      background: #020617;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .letter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      padding: 4px 9px;
+      font-size: 0.82rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .chip:hover {
+      transform: translateY(-1px);
+      border-color: rgba(218, 165, 32, 0.6);
+      color: var(--accent);
+    }
+
+    .chip.active {
+      background: radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.18), rgba(15, 23, 42, 0.98));
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ====== GRID ====== */
+
+    .grid-wrapper {
+      margin-top: 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(30, 64, 175, 0.45);
+      background: radial-gradient(circle at top, rgba(37, 99, 235, 0.08), transparent 55%), rgba(15, 23, 42, 0.98);
+      padding: 14px 12px 14px;
+    }
+
+    .grid-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .grid-header span strong {
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+    }
+
+    .reciter-card {
+      position: relative;
+      padding: 10px 11px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.75);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .reciter-card::before {
+      content: attr(data-letter);
+      position: absolute;
+      inset-inline-start: 8px;
+      inset-block-end: 6px;
+      font-size: 0.7rem;
+      color: rgba(148, 163, 184, 0.55);
+    }
+
+    .reciter-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.28), transparent 55%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
+    }
+
+    .reciter-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(250, 204, 21, 0.8);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .reciter-card:hover::after {
+      opacity: 1;
+    }
+
+    .reciter-name {
+      font-weight: 700;
+      font-size: 0.96rem;
+      margin-bottom: 4px;
+      letter-spacing: 0.01em;
+    }
+
+    .reciter-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .pill {
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 0.7rem;
+    }
+
+    .pill.accent {
+      border-color: rgba(218, 165, 32, 0.8);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* ====== EMPTY STATE ====== */
+
+    .empty-state {
+      text-align: center;
+      padding: 20px 10px 4px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .empty-state strong {
+      color: var(--accent);
+    }
+
+    /* ====== FOOTER ====== */
+
+    footer {
+      margin-top: auto;
+      padding: 16px 18px 20px;
+      border-top: 1px solid rgba(30, 64, 175, 0.55);
+      background: radial-gradient(circle at top, rgba(30, 64, 175, 0.4), rgba(15, 23, 42, 0.98));
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    /* ====== RESPONSIVE ====== */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-panel {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        padding-inline: 14px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-inline: 14px;
+      }
+
+      .shell {
+        padding-inline: 14px;
+      }
+
+      .filter-card {
+        padding-inline: 12px;
+      }
+
+      .grid-wrapper {
+        padding-inline: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo-icon">
+          
+        </div>
+        <div>
+          <div class="logo-mark">QURAN</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">
+            منصة استماع لتلاوات القرآن الكريم
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>
+        استمع إلى القرآن الكريم بصوت
+        <span>نخبة من القرّاء</span>
+      </h1>
+      <p>
+        هذا الموقع صدقة جارية علي روح كل اموات المسلمين و المسلمات 
+      </p>
+  </section>
+  <main class="shell">
+    <section class="filter-card">
+      <div class="filter-top">
+        <div class="filter-title">
+          <span>عرض المشايخ حسب</span>
+          <strong>الاسم أو الحرف</strong>
+        </div>
+        <div class="search-box">
+          <input id="searchInput" type="text" placeholder="ابحث باسم الشيخ..." />
+          <span class="search-icon">🔎</span>
+        </div>
+      </div>
+
+      <div class="letter-chips" id="letterChips">
+        <button class="chip active" data-letter="all">الكل</button>
+        <button class="chip" data-letter="ا">ا</button>
+        <button class="chip" data-letter="ب">ب</button>
+        <button class="chip" data-letter="ت">ت</button>
+        <button class="chip" data-letter="ث">ث</button>
+        <button class="chip" data-letter="ج">ج</button>
+        <button class="chip" data-letter="ح">ح</button>
+        <button class="chip" data-letter="خ">خ</button>
+        <button class="chip" data-letter="د">د</button>
+        <button class="chip" data-letter="ر">ر</button>
+        <button class="chip" data-letter="ز">ز</button>
+        <button class="chip" data-letter="س">س</button>
+        <button class="chip" data-letter="ش">ش</button>
+        <button class="chip" data-letter="ص">ص</button>
+        <button class="chip" data-letter="ض">ض</button>
+        <button class="chip" data-letter="ط">ط</button>
+        <button class="chip" data-letter="ظ">ظ</button>
+        <button class="chip" data-letter="ع">ع</button>
+        <button class="chip" data-letter="غ">غ</button>
+        <button class="chip" data-letter="ف">ف</button>
+        <button class="chip" data-letter="ق">ق</button>
+        <button class="chip" data-letter="ك">ك</button>
+        <button class="chip" data-letter="ل">ل</button>
+        <button class="chip" data-letter="م">م</button>
+        <button class="chip" data-letter="ن">ن</button>
+        <button class="chip" data-letter="هـ">هـ</button>
+        <button class="chip" data-letter="و">و</button>
+        <button class="chip" data-letter="ي">ي</button>
+      </div>
+
+      <div class="grid-wrapper">
+        <div class="grid-header">
+          <span>عدد المشايخ المعروضين: <strong id="countLabel">0</strong></span>
+          
+        </div>
+
+        <div class="grid" id="recitersGrid">
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display:none;">
+          لا توجد نتائج مطابقة لبحثك.
+          <br />
+          جرّب اسمًا آخر أو امسح الحقل <strong>↩</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+         <span>QURAN</span>
+  </footer>
+
+  <!-- ====== SCRIPT ====== -->
+  <script>
+    // مصفوفة المشايخ (يمكنك تعديلها/زيادتها كما تشاء)
+    const reciters = [
+      { name: "أحمد العجمي", letter: "ا" },
+      { name: "إبراهيم الأخضر", letter: "ا" },
+      { name: "أيمن سويد", letter: "ا" },
+      { name: "أحمد علي الحذيفي", letter: "ا" },
+      { name: " أحمد ديبان ", letter: "ا" },
+      { name: "أحمد خضر الطرابلسي ", letter: "ا" },
+      { name: "أحمد طالب حميد ", letter: "ا" },
+      { name: "أحمد محمد طاهر السوداني ", letter: "ا" },
+      { name: "أحمد خليل شاهين  ", letter: "ا" },
+      { name: " أحمد عيسى المعصراوي ", letter: "ا" },
+      { name: "أحمد اللحدان الدوسري ", letter: "ا" },
+      { name: "  أحمد النفيس  ", letter: "ا" },
+      { name: " أحمد نعينع  ", letter: "ا" },
+      { name: "أحمد عبدالرازق نصر ", letter: "ا" },
+      { name: "أحمد محمد عامر ", letter: "ا" },
+      { name: "أحمد السعيد مندور ", letter: "ا" },
+      { name: "أحمد الشافعي ", letter: "ا" },
+      { name: "أحمد خضر ", letter: "ا" },
+      { name: "ابراهيم الجبرين ", letter: "ا" },
+      { name: "ابراهيم العسيري ", letter: "ا" },
+      { name: "ادريس ابكر ", letter: "ا" },
+      { name: " أدهم النابلسي ", letter: "ا" },
+      { name: "إسحاق دانيش ", letter: "ا" },
+      { name: " اسلام صبحي ", letter: "ا" },
+      { name: "أكرم العلاقمي ", letter: "ا" },
+      { name: "إلهان توك  ", letter: "ا" },
+      { name: "أنس براق ", letter: "ا" },
+      { name: "أنس جلهوم ", letter: "ا" },
+      { name: " أنس العمادي ", letter: "ا" },
+      { name: "أنس الميمان ", letter: "ا" },
+      { name: " أنس محمد ", letter: "ا" },
+      { name: "الياس حجري ", letter: "ا" },
+      { name: "الأمين محمد قنيوة   ", letter: "ا" },
+
+
+
+      { name: "بدر التركي", letter: "ب" },
+      { name: "بندر بليلة", letter: "ب" },
+       { name: "بيشه وا قادر الكردي ", letter: "ب" },
+
+
+
+      { name: "توفيق الصايغ", letter: "ت" },
+      { name: " تميم الريمي  ", letter: "ت" },
+
+
+
+
+      { name: "عبدالله الجهني ", letter: "ج" },
+      { name: "جزاع الصويلح ", letter: "ج" },
+
+
+
+
+
+      { name: "حاتم فريد الواعر", letter: "ح" },
+      { name: "حسن صالح", letter: "ح" },
+      { name: "حازم سيف ", letter: "ح" },
+      { name: "حجاج الهنداوي", letter: "ح" },
+      { name: "حمزة الجزائري  ", letter: "ح" },
+      { name: "حمزة الفار ", letter: "ح" },
+      { name: "حسام الدين عبادي ", letter: "ح" },
+      { name: "حسن صالح ورش ", letter: "ح" },
+      { name: "حسن الواجدي ", letter: "ح" },
+      { name: "الحسيني العزازي ", letter: "ح" },
+      { name: "حمزة بوديب", letter: "ح" },
+
+
+
+
+
+
+      { name: "خالد الجليل", letter: "خ" },
+      { name: "خالد القحطاني", letter: "خ" },
+      { name: "خالد عبد الكافي ", letter: "خ" },
+      { name: " خالد المهنا ", letter: "خ" },
+      { name: " خليفة الطنيجي", letter: "خ" },
+      { name: "الحافظ خليل اسماعيل  ", letter: "خ" },
+      { name: "خليل الصغير", letter: "خ" },
+
+
+
+
+      { name: "داود حمزة", letter: "د" },
+      { name: "الدوكالي محمد العالم", letter: "د" },
+
+
+
+
+      { name: "رعد محمد الكردي", letter: "ر" },
+      { name: "رشيد بلعشية", letter: "ر" },
+      { name: "رشيد بلعالية", letter: "ر" },
+      { name: " رزكار محمد الكردي", letter: "ر" },
+      { name: "ريان المحيسني", letter: "ر" },
+
+
+
+
+      { name: "زكي داغستاني", letter: "ز" },
+      { name: "الزين محمد أحمد", letter: "ز" },
+
+
+       { name: "سعد الغامدي", letter: "س" },
+      { name: "سالم الرويلي", letter: "س" },
+      { name: "سعيد الخطيب", letter: "س" },
+      { name: "سعود الشريم", letter: "س" },
+      { name: "سلمان العتيبي", letter: "س" },
+      { name: "سهل ياسين", letter: "س" },
+      { name: "سيد سعيد", letter: "س" },
+      { name: "سيد متولي عبدالعال", letter: "س" },
+
+
+
+      { name: "الشحات محمد أنور", letter: "ش" },
+      { name: "شعبان الصياد", letter: "ش" },
+      { name: " أبو بكر الشاطري", letter: "ش" },
+      { name: "شريف مصطفى", letter: "ش" },
+      { name: "شيرزاد عبدالرحمن طاهر", letter: "ش" },
+
+
+
+      { name: "صالح الأنصاري", letter: "ص" },
+      { name: "صالح الصاهود", letter: "ص" },
+      { name: "صدقات الباكستاني", letter: "ص" },
+      { name: "صالح أحمد صالح", letter: "ص" },
+      { name: "صالح الباجي", letter: "ص" },
+      { name: "صلاح البدير", letter: "ص" },
+      { name: "صلاح الجمل", letter: "ص" },
+      { name: "صالح بو خاطر", letter: "ص" },
+      { name: "صلاح الهاشم", letter: "ص" },
+      { name: "صلاح باعثمان", letter: "ص" },
+      { name: "عبد الرشيد صوفي", letter: "ص" },
+
+
+      { name: "طارق محمد", letter: "ط" },
+      { name: "محمد محمود الطبلاوي ", letter: "ط" },
+
+
+
+
+
+
+
+
+
+      { name: "عبدالباسط عبدالصمد", letter: "ع" },
+      { name: "عبدالباري الثبيتي", letter: "ع" },
+      { name: "عبدالباسط وِرَش", letter: "ع" },
+      { name: "عبدالرحمن السديس", letter: "ع" },
+      { name: "السديس و الشريم", letter: "س" },
+      { name: "عبدالرحمن العوسي", letter: "ع" },
+      { name: "عبدالرحمن الجريذي", letter: "ع" },
+      { name: "عبدالرحمن مسعد", letter: "ع" },
+      { name: "عبدالرحمن الماجد", letter: "ع" },
+      { name: "عبدالرحمن بنموسى", letter: "ع" },
+      { name: "عبدالعزيز الزهراني", letter: "ع" },
+      { name: "عبدالعزيز الأحمد", letter: "ع" },
+      { name: "عبدالعزيز الكرعاني", letter: "ع" },
+      { name: "عبدالعزيز عسيري", letter: "ع" },
+      { name: "عبدالعزيز سحيم", letter: "ع" },
+      { name: "عبدالله الخلف", letter: "ع" },
+      { name: "عبدالله الموسى", letter: "ع" },
+      { name: "عبدالله المطرود", letter: "ع" },
+      { name: "عبدالله بصفر", letter: "ع" },
+      { name: "عبدالله البعيجان", letter: "ع" },
+      { name: "عبدالله الخليفي", letter: "ع" },
+      { name: "عبدالله عواد الجهني", letter: "ع" },
+      { name: "عبدالله كامل", letter: "ع" },
+      { name: "عبدالرزاق الدليمي", letter: "ع" },
+      { name: "عبدالكبير الحديدي", letter: "ع" },
+      { name: "عبدالمحسن الحارثي", letter: "ع" },
+      { name: "عبدالولي الأركاني", letter: "ع" },
+      { name: "عز الدين العوامي", letter: "ع" },
+      { name: "عكاشة كميتي", letter: "ع" },
+      { name: "عفيف محمد تاج", letter: "ع" },
+      { name: "  عمار لؤي الملا علي", letter: "ع" },
+      { name: "  عادل ريان", letter: "ع" },
+      { name: "  عادل الكلباني", letter: "ع" },
+      { name: "عامر الكاظمي", letter: "ع" },
+      { name: "عبد الحليم حسين", letter: "ع" },
+      { name: "عبد الحميد احساين", letter: "ع" },
+      { name: "عبد الله خياط", letter: "ع" },
+      { name: "عبد المحسن القاسم", letter: "ع" },
+      { name: " عبد المجيب بنكيران", letter: "ع" },
+      { name: "عبد الهادي كناكري", letter: "ع" },
+      { name: " عبيدة موفق", letter: "ع" },
+      { name: "علاء عقل", letter: "ع" },
+      { name: "علي الحذيفي", letter: "ع" },
+      { name: "علي جابر", letter: "ع" },
+      { name: "علي عبدالسلام اليوسف", letter: "ع" },
+      { name: " عماد المنصري", letter: "ع" },
+      { name: "عمر بن عبد العزيز", letter: "ع" },
+      { name: "عمر القزابري", letter: "ع" },
+      { name: " عمر الدريويز", letter: "ع" },
+      { name: "عمر هشام العربي", letter: "ع" },
+      { name: "العيون الكوشي", letter: "ع" },
+
+
+
+
+      { name: "غسان الشوربجي", letter: "غ" },
+      
+      
+
+
+
+      { name: "فارس عباد", letter: "ف" },
+      { name: " فاتح جولاق التركي", letter: "ف" },
+      { name: "لفاتح محمد الزبير", letter: "ف" },
+      { name: "فؤاد الخامري", letter: "ف" },
+      { name: "فهد المطيري", letter: "ف" },
+
+
+
+
+       { name: "كريم منصوري", letter: "ك" },
+
+
+
+
+      { name: " مصطفى اللاهوني", letter: "ل" },
+
+
+
+
+      { name: "محمد محمود", letter: "م" },
+      { name: "محمد الطبلاوي", letter: "م" },
+      { name: "مشاري العفاسي", letter: "م" },
+      { name: "مفتاح السلطني", letter: "م" },
+      { name: "مصطفى إسماعيل", letter: "م" },
+      { name: "مصطفى اسماعيل تجويد", letter: "م" },
+      { name: "مصطفى رعد العزاوي", letter: "م" },
+      { name: "مصطفى اللاهوني", letter: "م" },
+      { name: "مصطفى غربي", letter: "م" },
+      { name: "محمد صديق المنشاوي", letter: "م" },
+      { name: "المنشاوي مع الأطفال", letter: "م" },
+      { name: "المنشاوي مصحف مجود", letter: "م" },
+      { name: "محمود خليل الحصري", letter: "م" },
+      { name: "محمد جبريل", letter: "م" },
+      { name: "محمد المحيسني", letter: "م" },
+      { name: "محمد السبيّل", letter: "م" },
+      { name: "محمد الكنتاوي", letter: "م" },
+      { name: "محمد عبدالحكم", letter: "م" },
+      { name: "محمد حسان", letter: "م" },
+      { name: "محمد رفعت", letter: "م" },
+      { name: "محمد الفقيه", letter: "م" },
+      { name: "ماهر المعيقلي", letter: "م" },
+      { name: "ماجد الزامل", letter: "م" },
+      { name: "ماهر علوان - حدر", letter: "م" },
+      { name: "ماهر شخاشيرو", letter: "م" },
+      { name: " محمد أيوب", letter: "م" },
+      { name: "محمد أيوب التراويح", letter: "م" },
+      { name: "محمد البراك", letter: "م" },
+      { name: "محمد البخيت ", letter: "م" },
+      { name: "محمد الحضيري", letter: "م" },
+      { name: "محمد الغزالي", letter: "م" },
+      { name: "محمد ديبيروف", letter: "م" },
+      { name: "محمد طه الجنيد", letter: "م" },
+      { name: "محمد اللحيدان", letter: "م" },
+      { name: "محمد رشاد الشريف", letter: "م" },
+      { name: " الحصري تجويد", letter: "م" },
+      { name: "الحصري برواية ورش", letter: "م" },
+      { name: "الحصري برواية قالون ", letter: "م" },
+      { name: "الحصري المعلم للاطفال ", letter: "م" },
+      { name: " محمود علي البنا ", letter: "م" },
+      { name: "محمود الشحات أنور", letter: "م" },
+      { name: "محمد الهادي توري", letter: "م" },
+      { name: "محمد هشام حسن", letter: "م" },
+      { name: "محمد سايد ", letter: "م" },
+      { name: "محمد عبد الكريم", letter: "م" },
+      { name: " محمد حسين عامر", letter: "م" },
+      { name: "مختار الحاج", letter: "م" },
+      { name: "معاذ الدويك", letter: "م" },
+      { name: "مشاري البغلي", letter: "م" },
+      { name: "مصطفى الفرجاني", letter: "م" },
+      { name: "ممدوح عامر", letter: "م" },
+      { name: "ميثم التمار ", letter: "م" },
+
+
+
+
+      { name: "ناصر القطامي", letter: "ن" },
+      { name: "نورين محمد صديق", letter: "ن" },
+      { name: "نبيل الرفاعي", letter: "ن" },
+      { name: " نعمة الحسان", letter: "ن" },
+      { name: "نورالدين سليم نوري", letter: "ن" },
+
+  
+
+
+
+
+
+
+    
+      { name: "قاسم النجار", letter: "ق" },
+      { name: "قيس الربيعي", letter: "ق" },
+      { name: "قحطان الكبيسي", letter: "ق" },
+      { name: "قمر الدين المدني", letter: "ق" },
+
+
+
+
+      { name: "هاني الرفاعي", letter: "هـ" },
+      { name: "هزاع البلوشي", letter: "هـ" },
+      { name: "هشام الهراز", letter: "هـ" },
+      { name: "هيثم الدخين", letter: "هـ" },
+      { name: "هيثم الجدعاني", letter: "هـ" },
+
+
+
+      { name: "وديع اليمني", letter: "و" },
+      { name: "الوليد الشمسان", letter: "و" },
+      { name: "وليد مهساس", letter: "و" },
+
+      
+     
+
+
+     
+      { name: "ياسر القرشي", letter: "ي" },
+      { name: "ياسر الدوسري", letter: "ي" },
+      { name: "ياسر الزيلعي", letter: "ي" },
+      { name: "ياسر سلامة", letter: "ي" },
+      { name: "يحيى حوى", letter: "ي" },
+      { name: "ياسين الجزائري", letter: "ي" },
+      { name: "يوسف بن نوح أحمد", letter: "ي" },
+      { name: "يوسف الشويعي", letter: "ي" },
+      { name: "يوسف العدروس", letter: "ي" },
+      { name: "يوسف الصقير", letter: "ي" },
+      { name: "يوسف كالو", letter: "ي" },
+      { name: "يوسف معاطي", letter: "ي" },
+      { name: "يونس اسويلص", letter: "ي" },
+      
+    ];
+
+    const grid = document.getElementById("recitersGrid");
+    const countLabel = document.getElementById("countLabel");
+    const searchInput = document.getElementById("searchInput");
+    const letterChips = document.getElementById("letterChips");
+    const emptyState = document.getElementById("emptyState");
+
+    let activeLetter = "all";
+
+    function renderReciters() {
+      const query = searchInput.value.trim().toLowerCase();
+      grid.innerHTML = "";
+
+      const filtered = reciters.filter((r) => {
+        const matchLetter = activeLetter === "all" || r.letter === activeLetter;
+        const matchSearch =
+          !query || r.name.toLowerCase().includes(query);
+        return matchLetter && matchSearch;
+      });
+
+      countLabel.textContent = filtered.length;
+      emptyState.style.display = filtered.length ? "none" : "block";
+
+      filtered.forEach((reciter) => {
+        const card = document.createElement("article");
+        card.className = "reciter-card";
+        card.dataset.letter = reciter.letter;
+
+        card.innerHTML = `
+          <div class="reciter-name">${reciter.name}</div>
+          <div class="reciter-meta">
+            <span class="pill accent">قارئ</span>
+            <span class="pill">الحرف: ${reciter.letter}</span>
+          </div>
+        `;
+
+        // لاحقًا: يمكنك ربط onclick لفتح صفحة الشيخ
+        grid.appendChild(card);
+      });
+    }
+
+    // تعامل مع البحث
+    searchInput.addEventListener("input", () => {
+      renderReciters();
+    });
+
+    // تعامل مع الفلترة بالحرف
+    letterChips.addEventListener("click", (e) => {
+      const chip = e.target.closest(".chip");
+      if (!chip) return;
+
+      document
+        .querySelectorAll(".chip")
+        .forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+
+      activeLetter = chip.dataset.letter || "all";
+      renderReciters();
+    });
+
+    // أول تحميل
+    renderReciters();
+  </script>
+</body>
+</html>
