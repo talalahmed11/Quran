@@ -646,296 +646,286 @@
          <span>QURAN</span>
   </footer>
 
-  <!-- ====== SCRIPT ====== -->
+
   <script>
-    // مصفوفة المشايخ (يمكنك تعديلها/زيادتها كما تشاء)
     const reciters = [
-      { name: "أحمد العجمي", letter: "ا" },
-      { name: "إبراهيم الأخضر", letter: "ا" },
-      { name: "أيمن سويد", letter: "ا" },
-      { name: "أحمد علي الحذيفي", letter: "ا" },
-      { name: " أحمد ديبان ", letter: "ا" },
-      { name: "أحمد خضر الطرابلسي ", letter: "ا" },
-      { name: "أحمد طالب حميد ", letter: "ا" },
-      { name: "أحمد محمد طاهر السوداني ", letter: "ا" },
-      { name: "أحمد خليل شاهين  ", letter: "ا" },
-      { name: " أحمد عيسى المعصراوي ", letter: "ا" },
-      { name: "أحمد اللحدان الدوسري ", letter: "ا" },
-      { name: "  أحمد النفيس  ", letter: "ا" },
-      { name: " أحمد نعينع  ", letter: "ا" },
-      { name: "أحمد عبدالرازق نصر ", letter: "ا" },
-      { name: "أحمد محمد عامر ", letter: "ا" },
-      { name: "أحمد السعيد مندور ", letter: "ا" },
-      { name: "أحمد الشافعي ", letter: "ا" },
-      { name: "أحمد خضر ", letter: "ا" },
-      { name: "ابراهيم الجبرين ", letter: "ا" },
-      { name: "ابراهيم العسيري ", letter: "ا" },
-      { name: "ادريس ابكر ", letter: "ا" },
-      { name: " أدهم النابلسي ", letter: "ا" },
-      { name: "إسحاق دانيش ", letter: "ا" },
-      { name: " اسلام صبحي ", letter: "ا" },
-      { name: "أكرم العلاقمي ", letter: "ا" },
-      { name: "إلهان توك  ", letter: "ا" },
-      { name: "أنس براق ", letter: "ا" },
-      { name: "أنس جلهوم ", letter: "ا" },
-      { name: " أنس العمادي ", letter: "ا" },
-      { name: "أنس الميمان ", letter: "ا" },
-      { name: " أنس محمد ", letter: "ا" },
-      { name: "الياس حجري ", letter: "ا" },
-      { name: "الأمين محمد قنيوة   ", letter: "ا" },
+      { name: "أحمد العجمي", letter: "ا", file:"ahmed-elagamy"},
+      { name: "إبراهيم الأخضر", letter: "ا", file:"ibrahem-alakhdar" },
+      { name: "أيمن سويد", letter: "ا",file:"ayman-swed" },
+      { name: "أحمد علي الحذيفي", letter: "ا",file:"ali el hezefy" },
+      { name: " أحمد ديبان ", letter: "ا", file:"ahmed deyban" },
+      { name: "أحمد خضر الطرابلسي ", letter: "ا",file:"ahmed khedr el trablsey" },
+      { name: "أحمد طالب حميد ", letter: "ا",file:"ahmed taleb hamed" },
+      { name: "أحمد محمد طاهر السوداني ", letter: "ا",file:"ahmed mohamed taher elsodany" },
+      { name: "أحمد خليل شاهين  ", letter: "ا",file:"ahmed khalel shahen" },
+      { name: " أحمد عيسى المعصراوي ", letter: "ا", file :"ahmed eisa el masawray" },
+      { name: "أحمد اللحدان الدوسري ", letter: "ا" ,file:"ahmed ellahdan eldosary" },
+      { name: "  أحمد النفيس  ", letter: "ا",file:"ahmed el nafes" },
+      { name: " أحمد نعينع  ", letter: "ا",file:"ahmed na'eena'" },
+      { name: "أحمد عبدالرازق نصر ", letter: "ا" ,file:"ahmed abdelrazek nasr"},
+      { name: "أحمد محمد عامر ", letter: "ا",file:"ahmed mohamed aamer" },
+      { name: "أحمد السعيد مندور ", letter: "ا", file:"ahmed saaed mandor" },
+      { name: "أحمد الشافعي ", letter: "ا" , file:"ahmed elshafe'y"},
+      { name: "أحمد خضر ", letter: "ا" ,file:"ahmed khedr" },
+      { name: "ابراهيم الجبرين ", letter: "ا", file:"ibrahem el gabren" },
+      { name: "ابراهيم العسيري ", letter: "ا" ,file:"ibrahem el esaary"},
+      { name: "ادريس ابكر ", letter: "ا" ,file:"edres abkar"},
+      { name: " أدهم النابلسي ", letter: "ا",file:"adham el nablsy" },
+      { name: "إسحاق دانيش ", letter: "ا",file:"esahk danesh" },
+      { name: " اسلام صبحي ", letter: "ا",file:"eslam sobhy" },
+      { name: "أكرم العلاقمي ", letter: "ا",file:"akram elaalkmy" },
+      { name: "إلهان توك  ", letter: "ا" ,file:"elhan tok"},
+      { name: "أنس براق ", letter: "ا" ,file:"anas braq" },
+      { name: "أنس جلهوم ", letter: "ا" ,file:"anas galhom"},
+      { name: " أنس العمادي ", letter: "ا",file:"anas el amady" },
+      { name: "أنس الميمان ", letter: "ا" ,file:"anas elmyman"},
+      { name: " أنس محمد ", letter: "ا" ,file:"anas mohamed"},
+      { name: "الياس حجري ", letter: "ا" ,file:"elyas hagry"},
+      { name: "الأمين محمد قنيوة   ", letter: "ا",file:"alamen mohamed qynwa" },
 
 
 
-      { name: "بدر التركي", letter: "ب" },
-      { name: "بندر بليلة", letter: "ب" },
-       { name: "بيشه وا قادر الكردي ", letter: "ب" },
+      { name: "بدر التركي", letter: "ب" ,file:"badr el torky" },
+      { name: "بندر بليلة", letter: "ب",file:"badr blela" },
+       { name: "بيشه وا قادر الكردي ", letter: "ب",file:"besha wa qader el kordy" },
 
 
 
-      { name: "توفيق الصايغ", letter: "ت" },
-      { name: " تميم الريمي  ", letter: "ت" },
-
-
-
-
-      { name: "عبدالله الجهني ", letter: "ج" },
-      { name: "جزاع الصويلح ", letter: "ج" },
+      { name: "توفيق الصايغ", letter: "ت",file:"tawfeek el sayegh" },
+      { name: " تميم الريمي  ", letter: "ت" ,file:"tamem el reemy"},
 
 
 
 
-
-      { name: "حاتم فريد الواعر", letter: "ح" },
-      { name: "حسن صالح", letter: "ح" },
-      { name: "حازم سيف ", letter: "ح" },
-      { name: "حجاج الهنداوي", letter: "ح" },
-      { name: "حمزة الجزائري  ", letter: "ح" },
-      { name: "حمزة الفار ", letter: "ح" },
-      { name: "حسام الدين عبادي ", letter: "ح" },
-      { name: "حسن صالح ورش ", letter: "ح" },
-      { name: "حسن الواجدي ", letter: "ح" },
-      { name: "الحسيني العزازي ", letter: "ح" },
-      { name: "حمزة بوديب", letter: "ح" },
+      { name: "عبدالله الجهني ", letter: "ج",file:"abdallah el geheny" },
+      { name: "جزاع الصويلح ", letter: "ج",file:"gzaa'a el soyleh" },
 
 
 
 
 
-
-      { name: "خالد الجليل", letter: "خ" },
-      { name: "خالد القحطاني", letter: "خ" },
-      { name: "خالد عبد الكافي ", letter: "خ" },
-      { name: " خالد المهنا ", letter: "خ" },
-      { name: " خليفة الطنيجي", letter: "خ" },
-      { name: "الحافظ خليل اسماعيل  ", letter: "خ" },
-      { name: "خليل الصغير", letter: "خ" },
-
-
-
-
-      { name: "داود حمزة", letter: "د" },
-      { name: "الدوكالي محمد العالم", letter: "د" },
-
-
-
-
-      { name: "رعد محمد الكردي", letter: "ر" },
-      { name: "رشيد بلعشية", letter: "ر" },
-      { name: "رشيد بلعالية", letter: "ر" },
-      { name: " رزكار محمد الكردي", letter: "ر" },
-      { name: "ريان المحيسني", letter: "ر" },
-
-
-
-
-      { name: "زكي داغستاني", letter: "ز" },
-      { name: "الزين محمد أحمد", letter: "ز" },
-
-
-       { name: "سعد الغامدي", letter: "س" },
-      { name: "سالم الرويلي", letter: "س" },
-      { name: "سعيد الخطيب", letter: "س" },
-      { name: "سعود الشريم", letter: "س" },
-      { name: "سلمان العتيبي", letter: "س" },
-      { name: "سهل ياسين", letter: "س" },
-      { name: "سيد سعيد", letter: "س" },
-      { name: "سيد متولي عبدالعال", letter: "س" },
-
-
-
-      { name: "الشحات محمد أنور", letter: "ش" },
-      { name: "شعبان الصياد", letter: "ش" },
-      { name: " أبو بكر الشاطري", letter: "ش" },
-      { name: "شريف مصطفى", letter: "ش" },
-      { name: "شيرزاد عبدالرحمن طاهر", letter: "ش" },
-
-
-
-      { name: "صالح الأنصاري", letter: "ص" },
-      { name: "صالح الصاهود", letter: "ص" },
-      { name: "صدقات الباكستاني", letter: "ص" },
-      { name: "صالح أحمد صالح", letter: "ص" },
-      { name: "صالح الباجي", letter: "ص" },
-      { name: "صلاح البدير", letter: "ص" },
-      { name: "صلاح الجمل", letter: "ص" },
-      { name: "صالح بو خاطر", letter: "ص" },
-      { name: "صلاح الهاشم", letter: "ص" },
-      { name: "صلاح باعثمان", letter: "ص" },
-      { name: "عبد الرشيد صوفي", letter: "ص" },
-
-
-      { name: "طارق محمد", letter: "ط" },
-      { name: "محمد محمود الطبلاوي ", letter: "ط" },
+      { name: "حاتم فريد الواعر", letter: "ح",file:"hateem fared el waa'ar" },
+      { name: "حسن صالح", letter: "ح"  ,file:"hassan saleh"},
+      { name: "حازم سيف ", letter: "ح" ,file:"hazeem seif"},
+      { name: "حجاج الهنداوي", letter: "ح",file:"hagag elhendrawy" },
+      { name: "حمزة الجزائري  ", letter: "ح" ,file:"hamza el gaza'ry"},
+      { name: "حمزة الفار ", letter: "ح",file:"hamza el far" },
+      { name: "حسام الدين عبادي ", letter: "ح",file:"hossam el den aabady" },
+      { name: "حسن صالح ورش ", letter: "ح",file:"hassan saleh wrsh" },
+      { name: "حسن الواجدي ", letter: "ح",file:"hassan el wagdy" },
+      { name: "الحسيني العزازي ", letter: "ح" ,file:"elhossany elazazy"},
+      { name: "حمزة بوديب", letter: "ح",file:"hamza bodyab" },
 
 
 
 
 
 
-
-
-
-      { name: "عبدالباسط عبدالصمد", letter: "ع" },
-      { name: "عبدالباري الثبيتي", letter: "ع" },
-      { name: "عبدالباسط وِرَش", letter: "ع" },
-      { name: "عبدالرحمن السديس", letter: "ع" },
-      { name: "السديس و الشريم", letter: "س" },
-      { name: "عبدالرحمن العوسي", letter: "ع" },
-      { name: "عبدالرحمن الجريذي", letter: "ع" },
-      { name: "عبدالرحمن مسعد", letter: "ع" },
-      { name: "عبدالرحمن الماجد", letter: "ع" },
-      { name: "عبدالرحمن بنموسى", letter: "ع" },
-      { name: "عبدالعزيز الزهراني", letter: "ع" },
-      { name: "عبدالعزيز الأحمد", letter: "ع" },
-      { name: "عبدالعزيز الكرعاني", letter: "ع" },
-      { name: "عبدالعزيز عسيري", letter: "ع" },
-      { name: "عبدالعزيز سحيم", letter: "ع" },
-      { name: "عبدالله الخلف", letter: "ع" },
-      { name: "عبدالله الموسى", letter: "ع" },
-      { name: "عبدالله المطرود", letter: "ع" },
-      { name: "عبدالله بصفر", letter: "ع" },
-      { name: "عبدالله البعيجان", letter: "ع" },
-      { name: "عبدالله الخليفي", letter: "ع" },
-      { name: "عبدالله عواد الجهني", letter: "ع" },
-      { name: "عبدالله كامل", letter: "ع" },
-      { name: "عبدالرزاق الدليمي", letter: "ع" },
-      { name: "عبدالكبير الحديدي", letter: "ع" },
-      { name: "عبدالمحسن الحارثي", letter: "ع" },
-      { name: "عبدالولي الأركاني", letter: "ع" },
-      { name: "عز الدين العوامي", letter: "ع" },
-      { name: "عكاشة كميتي", letter: "ع" },
-      { name: "عفيف محمد تاج", letter: "ع" },
-      { name: "  عمار لؤي الملا علي", letter: "ع" },
-      { name: "  عادل ريان", letter: "ع" },
-      { name: "  عادل الكلباني", letter: "ع" },
-      { name: "عامر الكاظمي", letter: "ع" },
-      { name: "عبد الحليم حسين", letter: "ع" },
-      { name: "عبد الحميد احساين", letter: "ع" },
-      { name: "عبد الله خياط", letter: "ع" },
-      { name: "عبد المحسن القاسم", letter: "ع" },
-      { name: " عبد المجيب بنكيران", letter: "ع" },
-      { name: "عبد الهادي كناكري", letter: "ع" },
-      { name: " عبيدة موفق", letter: "ع" },
-      { name: "علاء عقل", letter: "ع" },
-      { name: "علي الحذيفي", letter: "ع" },
-      { name: "علي جابر", letter: "ع" },
-      { name: "علي عبدالسلام اليوسف", letter: "ع" },
-      { name: " عماد المنصري", letter: "ع" },
-      { name: "عمر بن عبد العزيز", letter: "ع" },
-      { name: "عمر القزابري", letter: "ع" },
-      { name: " عمر الدريويز", letter: "ع" },
-      { name: "عمر هشام العربي", letter: "ع" },
-      { name: "العيون الكوشي", letter: "ع" },
+      { name: "خالد الجليل", letter: "خ" ,file:"khaled el galel"},
+      { name: "خالد القحطاني", letter: "خ",file:"khaled el qahtany" },
+      { name: "خالد عبد الكافي ", letter: "خ" ,file:"khaled abdelkafy"},
+      { name: " خالد المهنا ", letter: "خ" ,file:"khaled elmahna"},
+      { name: " خليفة الطنيجي", letter: "خ" ,file:"khalefa el tangy"},
+      { name: "الحافظ خليل اسماعيل  ", letter: "خ",file:"alhafez khalel esmaiel" },
+      { name: "خليل الصغير", letter: "خ" ,file:"khalel elsaghyer"},
 
 
 
 
-      { name: "غسان الشوربجي", letter: "غ" },
+      { name: "داود حمزة", letter: "د",file:"dawood hamza" },
+      { name: "الدوكالي محمد العالم", letter: "د",file:"eldokly mohamed el aalem" },
+
+
+
+
+      { name: "رعد محمد الكردي", letter: "ر" ,file:"eldokly mohamed el aalem"},
+      { name: "رشيد بلعشية", letter: "ر",file:"rashed belaa'aesha" },
+      { name: "رشيد بلعالية", letter: "ر",file:"rashed belaa'alya" },
+      { name: " رزكار محمد الكردي", letter: "ر",file:"razkar moahmed elkordy" },
+      { name: "ريان المحيسني", letter: "ر",file:"rayan elmhseni" },
+
+
+
+
+      { name: "زكي داغستاني", letter: "ز",file:"zaki daghastni" },
+      { name: "الزين محمد أحمد", letter: "ز" ,file:"elzein mohamed ahmed"},
+
+
+       { name: "سعد الغامدي", letter: "س",file:"saad elghamdy" },
+      { name: "سالم الرويلي", letter: "س" ,file:"salem el royely"},
+      { name: "سعيد الخطيب", letter: "س",file:"saaed el khateb" },
+      { name: "سعود الشريم", letter: "س",file:"saaod elshreem" },
+      { name: "سلمان العتيبي", letter: "س",file:"soliman el aateby" },
+      { name: "سهل ياسين", letter: "س" ,file:"sahl yassin"},
+      { name: "سيد سعيد", letter: "س" ,file:"sayed saaed"},
+      { name: "سيد متولي عبدالعال", letter: "س" ,file:"sayed metwaly abdelaal"},
+      { name: "السديس و الشريم", letter: "س" ,file:"elsodes welshareem"},
+
+
+
+      { name: "الشحات محمد أنور", letter: "ش",file:"el sahaht mohamed anwr" },
+      { name: "شعبان الصياد", letter: "ش",file:"shaaban el sayad" },
+      { name: " أبو بكر الشاطري", letter: "ش",file:"abo bakr el shatry" },
+      { name: "شريف مصطفى", letter: "ش" ,file:"shreif mostafa"},
+      { name: "شيرزاد عبدالرحمن طاهر", letter: "ش",file:"shayrazad abdelrahman taher" },
+
+
+
+      { name: "صالح الأنصاري", letter: "ص",file:"saleh elansary" },
+      { name: "صالح الصاهود", letter: "ص",file:"saleh alsahod" },
+      { name: "صدقات الباكستاني", letter: "ص" ,file:"sadakat el bakstani"},
+      { name: "صالح أحمد صالح", letter: "ص",file:"saleh ahmed saleh" },
+      { name: "صالح الباجي", letter: "ص",file:"saleh el bagy" },
+      { name: "صلاح البدير", letter: "ص",file:"salah elbader" },
+      { name: "صلاح الجمل", letter: "ص",file:"salah el gmal" },
+      { name: "صالح بو خاطر", letter: "ص",file:"saleh bo khater" },
+      { name: "صلاح الهاشم", letter: "ص",file:"salah el hashem" },
+      { name: "صلاح باعثمان", letter: "ص",file:"salah baosman" },
+      { name: "عبد الرشيد صوفي", letter: "ص",file:"abdelrashed sofy" },
+
+
+      { name: "طارق محمد", letter: "ط",file:"tarek mohamed" },
+
+
+
+
+
+
+
+
+
+      { name: "عبدالباسط عبدالصمد", letter: "ع",file:"abdelbaset abdelsamad" },
+      { name: "عبدالباري الثبيتي", letter: "ع",file:"abdelbary el thebety" },
+      { name: "عبدالباسط وِرَش", letter: "ع",file:"abdelbaset wrsh" },
+      { name: "عبدالرحمن السديس", letter: "ع" ,file:"abdelrahman el sodes"},
+      { name: "عبدالرحمن العوسي", letter: "ع",file:"abdelrahman el ossy" },
+      { name: "عبدالرحمن الجريذي", letter: "ع",file:"abdelrahman elgrezy" },
+      { name: "عبدالرحمن مسعد", letter: "ع",file:"abdelrahman mosaad" },
+      { name: "عبدالرحمن الماجد", letter: "ع" ,file:"abdelrahman el majed"},
+      { name: "عبدالرحمن بنموسى", letter: "ع",file:"abdelrahman benmousa" },
+      { name: "عبدالعزيز الزهراني", letter: "ع",file:"abdelaziz elzahrany" },
+      { name: "عبدالعزيز الأحمد", letter: "ع" ,file:"abdelaziz elahmed"},
+      { name: "عبدالعزيز الكرعاني", letter: "ع",file:"abdelaziz elkaraa'any" },
+      { name: "عبدالعزيز عسيري", letter: "ع" ,file:"abdelaziz esaary"},
+      { name: "عبدالعزيز سحيم", letter: "ع",file:"abdelaziz sahem" },
+      { name: "عبدالله الخلف", letter: "ع" ,file:"abdallah el khalf"},
+      { name: "عبدالله الموسى", letter: "ع",file:"abdallah elmousy" },
+      { name: "عبدالله المطرود", letter: "ع",file:"abdallah el matrod" },
+      { name: "عبدالله بصفر", letter: "ع",file:"abdallah bsefr" },
+      { name: "عبدالله البعيجان", letter: "ع",file:"abdallah elbaaa'aegan" },
+      { name: "عبدالله الخليفي", letter: "ع",file:"abdallah elkhlefey" },
+      { name: "عبدالله عواد الجهني", letter: "ع",file:"abdallah awaad el geheny" },
+      { name: "عبدالله كامل", letter: "ع" ,file:"abdallah kamel"},
+      { name: "عبدالرزاق الدليمي", letter: "ع",file:"abdelrazek eldelmy" },
+      { name: "عبدالكبير الحديدي", letter: "ع",file:"abdelkaber el hadedy" },
+      { name: "عبدالمحسن الحارثي", letter: "ع" ,file:"abdelmohsen elharthy"},
+      { name: "عبدالولي الأركاني", letter: "ع",file:"abdelwaly elarkany" },
+      { name: "عز الدين العوامي", letter: "ع",file:"ezz elden elawamy" },
+      { name: "عكاشة كميتي", letter: "ع",file:"okasha kamety" },
+      { name: "عفيف محمد تاج", letter: "ع",file:"afef mohamed tag" },
+      { name: "  عمار لؤي الملا علي", letter: "ع",file:"ammar loay elmala ali" },
+      { name: "  عادل ريان", letter: "ع",file:"adel rayan" },
+      { name: "  عادل الكلباني", letter: "ع",file:"adel el kalbany" },
+      { name: "عامر الكاظمي", letter: "ع",file:"amer el kazmy" },
+      { name: "عبد الحليم حسين", letter: "ع",file:"abdelhalem hussin" },
+      { name: "عبد الحميد احساين", letter: "ع",file:"abdelhamed ahussein" },
+      { name: "عبد الله خياط", letter: "ع",file:"abdallah el khayat" },
+      { name: "عبد المحسن القاسم", letter: "ع",file:"abdelmohsen qassem" },
+      { name: " عبد المجيب بنكيران", letter: "ع" ,file:"abdelmogeb benkryan"},
+      { name: "عبد الهادي كناكري", letter: "ع" ,file:"abdelhady kanakry"},
+      { name: " عبيدة موفق", letter: "ع",file:"abeda mwfk" },
+      { name: "علاء عقل", letter: "ع" ,file:"alaa aa'akl"},
+      { name: "علي الحذيفي", letter: "ع",file:"ali el hezefy" },
+      { name: "علي جابر", letter: "ع",file:"ali gaber" },
+      { name: "علي عبدالسلام اليوسف", letter: "ع" ,file:"ali abdelsalam elyoussef"},
+      { name: " عماد المنصري", letter: "ع",file:"emad elmnsary" },
+      { name: "عمر بن عبد العزيز", letter: "ع",file:"omar benabdelaziz" },
+      { name: "عمر القزابري", letter: "ع",file:"omar elqazabry" },
+      { name: " عمر الدريويز", letter: "ع",file:"omar elderyoyez" },
+      { name: "عمر هشام العربي", letter: "ع",file:"omar hesham el araby" },
+      { name: "العيون الكوشي", letter: "ع",file:"eleyoin el koshy" },
+
+
+
+
+      { name: "غسان الشوربجي", letter: "غ",file:"ghasan el shorbgy" },
       
       
 
 
 
-      { name: "فارس عباد", letter: "ف" },
-      { name: " فاتح جولاق التركي", letter: "ف" },
-      { name: "لفاتح محمد الزبير", letter: "ف" },
-      { name: "فؤاد الخامري", letter: "ف" },
-      { name: "فهد المطيري", letter: "ف" },
+      { name: "فارس عباد", letter: "ف",file:"fares abaad" },
+      { name: " فاتح جولاق التركي", letter: "ف",file:"fateh golaq eltorky" },
+      { name: "لفاتح محمد الزبير", letter: "ف",file:"lfateh mohamed elzaber" },
+      { name: "فؤاد الخامري", letter: "ف",file:"fouad el khamry" },
+      { name: "فهد المطيري", letter: "ف" ,file:"fahd elmatry"},
 
 
 
 
-       { name: "كريم منصوري", letter: "ك" },
+       { name: "كريم منصوري", letter: "ك",file:"kareem mansoury" },
 
 
 
 
-      { name: " مصطفى اللاهوني", letter: "ل" },
+      { name: " مصطفى اللاهوني", letter: "ل",file:"mostafa el lahony" },
 
 
 
 
-      { name: "محمد محمود", letter: "م" },
-      { name: "محمد الطبلاوي", letter: "م" },
-      { name: "مشاري العفاسي", letter: "م" },
-      { name: "مفتاح السلطني", letter: "م" },
-      { name: "مصطفى إسماعيل", letter: "م" },
-      { name: "مصطفى اسماعيل تجويد", letter: "م" },
-      { name: "مصطفى رعد العزاوي", letter: "م" },
-      { name: "مصطفى اللاهوني", letter: "م" },
-      { name: "مصطفى غربي", letter: "م" },
-      { name: "محمد صديق المنشاوي", letter: "م" },
-      { name: "المنشاوي مع الأطفال", letter: "م" },
-      { name: "المنشاوي مصحف مجود", letter: "م" },
-      { name: "محمود خليل الحصري", letter: "م" },
-      { name: "محمد جبريل", letter: "م" },
-      { name: "محمد المحيسني", letter: "م" },
-      { name: "محمد السبيّل", letter: "م" },
-      { name: "محمد الكنتاوي", letter: "م" },
-      { name: "محمد عبدالحكم", letter: "م" },
-      { name: "محمد حسان", letter: "م" },
-      { name: "محمد رفعت", letter: "م" },
-      { name: "محمد الفقيه", letter: "م" },
-      { name: "ماهر المعيقلي", letter: "م" },
-      { name: "ماجد الزامل", letter: "م" },
-      { name: "ماهر علوان - حدر", letter: "م" },
-      { name: "ماهر شخاشيرو", letter: "م" },
-      { name: " محمد أيوب", letter: "م" },
-      { name: "محمد أيوب التراويح", letter: "م" },
-      { name: "محمد البراك", letter: "م" },
-      { name: "محمد البخيت ", letter: "م" },
-      { name: "محمد الحضيري", letter: "م" },
-      { name: "محمد الغزالي", letter: "م" },
-      { name: "محمد ديبيروف", letter: "م" },
-      { name: "محمد طه الجنيد", letter: "م" },
-      { name: "محمد اللحيدان", letter: "م" },
-      { name: "محمد رشاد الشريف", letter: "م" },
-      { name: " الحصري تجويد", letter: "م" },
-      { name: "الحصري برواية ورش", letter: "م" },
-      { name: "الحصري برواية قالون ", letter: "م" },
-      { name: "الحصري المعلم للاطفال ", letter: "م" },
-      { name: " محمود علي البنا ", letter: "م" },
-      { name: "محمود الشحات أنور", letter: "م" },
-      { name: "محمد الهادي توري", letter: "م" },
-      { name: "محمد هشام حسن", letter: "م" },
-      { name: "محمد سايد ", letter: "م" },
-      { name: "محمد عبد الكريم", letter: "م" },
-      { name: " محمد حسين عامر", letter: "م" },
-      { name: "مختار الحاج", letter: "م" },
-      { name: "معاذ الدويك", letter: "م" },
-      { name: "مشاري البغلي", letter: "م" },
-      { name: "مصطفى الفرجاني", letter: "م" },
-      { name: "ممدوح عامر", letter: "م" },
-      { name: "ميثم التمار ", letter: "م" },
+
+
+      { name: "محمد الطبلاوي", letter: "م",file:"mohmed el tablawy" },
+      { name: "مشاري العفاسي", letter: "م",file:"mashary el afasy" },
+      { name: "مفتاح السلطني", letter: "م",file:"moftah elsoltany" },
+      { name: "مصطفى إسماعيل", letter: "م",file:"mostafa esmaiel" },
+      { name: "مصطفى رعد العزاوي", letter: "م" ,file:"mostafa raad el ezawy"}, 
+      { name: "مصطفى غربي", letter: "م" ,file:"mostafa gharby"},
+      { name: "محمد صديق المنشاوي", letter: "م",file:"mohamed sdek el menshawy" },
+      { name: "محمود خليل الحصري", letter: "م",file:"mahmoud khalel el hossary" },
+      { name: "محمد جبريل", letter: "م",file:"mohamed gabrel" },
+      { name: "محمد المحيسني", letter: "م" ,file:"mohamed el mhseni"},
+      { name: "محمد السبيّل", letter: "م",file:"mohamed elsabel" },
+      { name: "محمد الكنتاوي", letter: "م",file:"mohamed el kentawy" },
+      { name: "محمد عبدالحكم", letter: "م",file:"mohamed abdelhakm" },
+      { name: "محمد حسان", letter: "م" ,file:"mohamed hassan"},
+      { name: "محمد رفعت", letter: "م",file:"mohamed refaat" },
+      { name: "محمد الفقيه", letter: "م",file:"mohamed el fakeh" },
+      { name: "ماهر المعيقلي", letter: "م",file:"maher el maa'akly" },
+      { name: "ماجد الزامل", letter: "م",file:"maged elzmal" },
+      { name: "ماهر شخاشيرو", letter: "م",file:"maher shakhakhero" },
+      { name: " محمد أيوب", letter: "م",file:"mohamed ayoub" },
+      { name: "محمد البراك", letter: "م",file:"mohamed elborak" },
+      { name: "محمد البخيت ", letter: "م" ,file:"mohamed el bakhet"},
+      { name: "محمد الحضيري", letter: "م",file:"mohamed el hadery" },
+      { name: "محمد الغزالي", letter: "م",file:"mohamed el ghazaly" },
+      { name: "محمد ديبيروف", letter: "م",file:"mohamed debrouf" },
+      { name: "محمد طه الجنيد", letter: "م",file:"mohamed taha el gned" },
+      { name: "محمد اللحيدان", letter: "م",file:"mohamed ellhdan" },
+      { name: "محمد رشاد الشريف", letter: "م",file:"mohamed rashad el shreif" },
+      { name: " محمود علي البنا ", letter: "م",file:"mahmoud ali el bana" },
+      { name: "محمود الشحات أنور", letter: "م",file:"mahmoud el shahat anwr" },
+      { name: "محمد الهادي توري", letter: "م",file:"mohamed el hady tory" },
+      { name: "محمد هشام حسن", letter: "م",file:"mohamed hesham hassan" },
+      { name: "محمد سايد ", letter: "م",file:"mohamed sayaed" },
+      { name: "محمد عبد الكريم", letter: "م",file:"mohamed abdelkareem" },
+      { name: " محمد حسين عامر", letter: "م",file:"mohamed hussin aamer" },
+      { name: "مختار الحاج", letter: "م",file:"mokhtar el hag" },
+      { name: "معاذ الدويك", letter: "م",file:"moaaz el doyek" },
+      { name: "مشاري البغلي", letter: "م",file:"mashary el balghy" },
+      { name: "مصطفى الفرجاني", letter: "م",file:"mostafa el fargany" },
+      { name: "ممدوح عامر", letter: "م",file:"mamdouh aamer" },
+      { name: "ميثم التمار ", letter: "م",file:"maytham eltamar" },
+      { name: "منصور السالمي", letter: "م",file:"mansourelsalmi"},
 
 
 
 
-      { name: "ناصر القطامي", letter: "ن" },
-      { name: "نورين محمد صديق", letter: "ن" },
-      { name: "نبيل الرفاعي", letter: "ن" },
-      { name: " نعمة الحسان", letter: "ن" },
-      { name: "نورالدين سليم نوري", letter: "ن" },
+      { name: "ناصر القطامي", letter: "ن",file:"nasser el katmy" },
+      { name: "نورين محمد صديق", letter: "ن" ,file:"noureen mohamed sadek"},
+      { name: "نبيل الرفاعي", letter: "ن",file:"nabel el refaay" },
+      { name: " نعمة الحسان", letter: "ن",file:"naama el hassan" },
+      { name: "نورالدين سليم نوري", letter: "ن",file:"noorelden sleim nory" },
 
   
 
@@ -945,108 +935,120 @@
 
 
     
-      { name: "قاسم النجار", letter: "ق" },
-      { name: "قيس الربيعي", letter: "ق" },
-      { name: "قحطان الكبيسي", letter: "ق" },
-      { name: "قمر الدين المدني", letter: "ق" },
+      { name: "قاسم النجار", letter: "ق",file:"qaseem el nagar" },
+      { name: "قيس الربيعي", letter: "ق",file:"qes el rabeey" },
+      { name: "قحطان الكبيسي", letter: "ق" ,file:"qahtan el kabsy"},
+      { name: "قمر الدين المدني", letter: "ق",file:"qamr el deen el madny" },
 
 
 
 
-      { name: "هاني الرفاعي", letter: "هـ" },
-      { name: "هزاع البلوشي", letter: "هـ" },
-      { name: "هشام الهراز", letter: "هـ" },
-      { name: "هيثم الدخين", letter: "هـ" },
-      { name: "هيثم الجدعاني", letter: "هـ" },
+
+      
+
+      { name: "هاني الرفاعي", letter: "هـ" ,file:"hani el refaay"},
+      { name: "هزاع البلوشي", letter: "هـ",file:"hzaa'aa el baloshy" },
+      { name: "هشام الهراز", letter: "هـ",file:"hesham el harz" },
+      { name: "هيثم الدخين", letter: "هـ" ,file:"haitham el dakhen"},
+      { name: "هيثم الجدعاني", letter: "هـ" ,file:"haitham el gadaa'any"},
 
 
 
-      { name: "وديع اليمني", letter: "و" },
-      { name: "الوليد الشمسان", letter: "و" },
-      { name: "وليد مهساس", letter: "و" },
+
+
+
+
+      { name: "وديع اليمني", letter: "و",file:"wadeaa'a el yamni" },
+      { name: "الوليد الشمسان", letter: "و",file:"el waleed elshmsan" },
+      { name: "وليد مهساس", letter: "و",file:"waleed mehsas" },
 
       
      
 
 
      
-      { name: "ياسر القرشي", letter: "ي" },
-      { name: "ياسر الدوسري", letter: "ي" },
-      { name: "ياسر الزيلعي", letter: "ي" },
-      { name: "ياسر سلامة", letter: "ي" },
-      { name: "يحيى حوى", letter: "ي" },
-      { name: "ياسين الجزائري", letter: "ي" },
-      { name: "يوسف بن نوح أحمد", letter: "ي" },
-      { name: "يوسف الشويعي", letter: "ي" },
-      { name: "يوسف العدروس", letter: "ي" },
-      { name: "يوسف الصقير", letter: "ي" },
-      { name: "يوسف كالو", letter: "ي" },
-      { name: "يوسف معاطي", letter: "ي" },
-      { name: "يونس اسويلص", letter: "ي" },
+      { name: "ياسر القرشي", letter: "ي",file:"yasser el korshy" },
+      { name: "ياسر الدوسري", letter: "ي",file:"yasser el dosrey" },
+      { name: "ياسر الزيلعي", letter: "ي",file:"yasser el zelaa'ay" },
+      { name: "ياسر سلامة", letter: "ي",file:"yasser salama" },
+      { name: "يحيى حوى", letter: "ي",file:"yahia hawy" },
+      { name: "ياسين الجزائري", letter: "ي" ,file:"yassin elgzaa'ry"},
+      { name: "يوسف بن نوح أحمد", letter: "ي",file:"youssef ben noah ahmed" },
+      { name: "يوسف الشويعي", letter: "ي",file:"youssef el shweaa'ay" },
+      { name: "يوسف العيدروس", letter: "ي",file:"youssef elaadros" },
+      { name: "يوسف الصقير", letter: "ي",file:'youssef elsaker' },
+      { name: "يوسف كالو", letter: "ي",file:"youssef kalo" },
+      { name: "يوسف معاطي", letter: "ي" ,file:"youssef maa'aty"},
+      { name: "يونس اسويلص", letter: "ي",file:"younes asoles" },
       
     ];
 
-    const grid = document.getElementById("recitersGrid");
-    const countLabel = document.getElementById("countLabel");
-    const searchInput = document.getElementById("searchInput");
-    const letterChips = document.getElementById("letterChips");
-    const emptyState = document.getElementById("emptyState");
+const grid = document.getElementById("recitersGrid");
+const countLabel = document.getElementById("countLabel");
+const searchInput = document.getElementById("searchInput");
+const letterChips = document.getElementById("letterChips");
+const emptyState = document.getElementById("emptyState");
 
-    let activeLetter = "all";
+let activeLetter = "all";
 
-    function renderReciters() {
-      const query = searchInput.value.trim().toLowerCase();
-      grid.innerHTML = "";
+/* ==== تحويل اسم الشيخ لاسم ملف (بديل احتياطي) ==== */
+function toFileName(name){
+  return name.trim()
+    .replace(/\s+/g,"-")
+    .replace(/[^\u0600-\u06FFa-zA-Z0-9\-]/g,"")
+    .toLowerCase();
+}
 
-      const filtered = reciters.filter((r) => {
-        const matchLetter = activeLetter === "all" || r.letter === activeLetter;
-        const matchSearch =
-          !query || r.name.toLowerCase().includes(query);
-        return matchLetter && matchSearch;
-      });
+/* ==== عرض الكروت ==== */
+function renderReciters(){
+  const q = searchInput.value.trim().toLowerCase();
+  grid.innerHTML = "";
 
-      countLabel.textContent = filtered.length;
-      emptyState.style.display = filtered.length ? "none" : "block";
+  const filtered = reciters.filter(r=>{
+    const m1 = activeLetter==="all" || r.letter===activeLetter;
+    const m2 = !q || r.name.toLowerCase().includes(q);
+    return m1 && m2;
+  });
 
-      filtered.forEach((reciter) => {
-        const card = document.createElement("article");
-        card.className = "reciter-card";
-        card.dataset.letter = reciter.letter;
+  countLabel.textContent = filtered.length;
+  emptyState.style.display = filtered.length ? "none":"block";
 
-        card.innerHTML = `
-          <div class="reciter-name">${reciter.name}</div>
-          <div class="reciter-meta">
-            <span class="pill accent">قارئ</span>
-            <span class="pill">الحرف: ${reciter.letter}</span>
-          </div>
-        `;
+  filtered.forEach(reciter=>{
+    const card = document.createElement("div");
+    card.className = "reciter-card";
+    card.innerHTML = `
+      <div class="reciter-name">${reciter.name}</div>
+    `;
 
-        // لاحقًا: يمكنك ربط onclick لفتح صفحة الشيخ
-        grid.appendChild(card);
-      });
-    }
+    /* ==== الربط ==== */
+    card.onclick = ()=>{
+      // يستخدم file إن وُجد — وإلا يحوّل الاسم
+      let fileName = reciter.file ? reciter.file : toFileName(reciter.name);
 
-    // تعامل مع البحث
-    searchInput.addEventListener("input", () => {
-      renderReciters();
-    });
+      // يمنع تكرار .html
+      fileName = fileName.replace(/\.html$/i, "");
 
-    // تعامل مع الفلترة بالحرف
-    letterChips.addEventListener("click", (e) => {
-      const chip = e.target.closest(".chip");
-      if (!chip) return;
+      window.location.href = "reciters/" + fileName + ".html";
+    };
 
-      document
-        .querySelectorAll(".chip")
-        .forEach((c) => c.classList.remove("active"));
-      chip.classList.add("active");
+    grid.appendChild(card);
+  });
+}
 
-      activeLetter = chip.dataset.letter || "all";
-      renderReciters();
-    });
+/* ==== أحداث ==== */
+searchInput.oninput = renderReciters;
 
-    // أول تحميل
-    renderReciters();
-  </script>
+letterChips.onclick = e=>{
+  const c = e.target.closest(".chip");
+  if(!c) return;
+  document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
+  c.classList.add("active");
+  activeLetter = c.dataset.letter;
+  renderReciters();
+};
+
+/* ==== تشغيل أولي ==== */
+renderReciters();
+</script>
 </body>
 </html>
